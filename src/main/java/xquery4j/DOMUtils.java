@@ -72,6 +72,10 @@ public class DOMUtils {
      * Convert a DOM node to a stringified XML representation.
      */
     static public String domToString(Node node) {
+        return domToString(node, null);
+    }
+    
+    static public String domToString(Node node, Integer indent) {
         if (node == null) {
             throw new IllegalArgumentException("Cannot stringify null Node!");
         }
@@ -81,7 +85,9 @@ public class DOMUtils {
         if (nodeType == Node.ELEMENT_NODE || nodeType == Node.DOCUMENT_NODE) {
             // serializer doesn't handle Node type well, only Element
             OutputFormat f = new OutputFormat();
-            f.setIndent(2);
+            if (indent != null) {
+                f.setIndent(indent);
+            }
             XMLSerializer ser = new XMLSerializer(f);
             ser.setNamespaces(true);
             ByteArrayOutputStream b = new ByteArrayOutputStream();
