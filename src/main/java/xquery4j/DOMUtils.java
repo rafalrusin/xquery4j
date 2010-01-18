@@ -117,6 +117,7 @@ public class DOMUtils {
     
     public static Document parse(InputStream in) throws Exception {
         DocumentBuilderFactory f = DOMUtils.getDocumentBuilderFactory();
+        f.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         f.setNamespaceAware(true);
         DocumentBuilder b = f.newDocumentBuilder();
         Document d = b.parse(in);

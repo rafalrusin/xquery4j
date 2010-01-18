@@ -21,6 +21,8 @@ package xquery4j;
 
 import javax.xml.namespace.QName;
 
+import junit.framework.Assert;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -54,5 +56,19 @@ public class TestEvaluator {
         XQueryEvaluator evaluator = buildQueryEvaluator();
         Node result = (Node) evaluator.evaluateExpression(IOUtils.toString(getClass().getResourceAsStream("/query.xml")), DOMUtils.parse(getClass().getResourceAsStream("/employees.xml"))).get(0);
         __log.debug(DOMUtils.domToString(result));
+    }
+    
+    @Test
+    public void testNames() throws Exception {
+       XQueryEvaluator evaluator = buildQueryEvaluator();
+       Node result = (Node) evaluator.evaluateExpression(IOUtils.toString(getClass().getResourceAsStream("/names.xml")), DOMUtils.parse(getClass().getResourceAsStream("/employees.xml"))).get(0);
+       __log.debug(DOMUtils.domToString(result));
+    }
+
+    @Test
+    public void testPrimitive() throws Exception {
+       XQueryEvaluator evaluator = new XQueryEvaluator();
+       Long result = (Long) evaluator.evaluateExpression("5+5", null).get(0);
+       Assert.assertEquals(new Long(10), result);
     }
 }
