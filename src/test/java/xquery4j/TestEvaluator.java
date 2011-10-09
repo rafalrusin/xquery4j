@@ -73,4 +73,16 @@ public class TestEvaluator {
         Long result = (Long) evaluator.evaluateExpression("5+5", null).get(0);
         Assert.assertEquals(new Long(10), result);
     }
+
+    @Test
+    public void testDomUpdate() throws Exception {
+        XQueryEvaluator evaluator = buildQueryEvaluator();
+        final String select = IOUtils.toString(getClass().getResourceAsStream("/select.xq"));
+        final Document employees = DOMUtils.parse(getClass().getResourceAsStream("/employees.xml"));
+        Node result = (Node) evaluator.evaluateExpression(select, employees).get(0);
+        result.setTextContent("newValue");
+        Node result2 = (Node) evaluator.evaluateExpression(select, employees).get(0);
+        Assert.assertEquals("newValue", result2.getTextContent());
+        LOGGER.debug(DOMUtils.domToString(result2));
+    }
 }
