@@ -18,23 +18,24 @@
   ~ under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>xquery4j</groupId>
-	<artifactId>xquery4j</artifactId>
-	<packaging>jar</packaging>
-	<version>1.0.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>xquery4j</groupId>
+    <artifactId>xquery4j</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <name>xquery4j</name>
     
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<source>1.5</source>
-						<target>1.5</target>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.5</source>
+                        <target>1.5</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-eclipse-plugin</artifactId>
@@ -43,50 +44,40 @@
             </plugins>
         </pluginManagement>
     </build>
-	<repositories>
-		<repository>
-			<id>apache</id>
-			<name>apache</name>
-			<url>http://svn.apache.org/repos/asf/servicemix/m2-repo</url>
-		</repository>
-	</repositories>
     <dependencies>
         <dependency>
-        	<groupId>net.sf.saxon</groupId>
-        	<artifactId>saxon</artifactId>
-        	<version>9.1.0.8</version>
+            <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
         </dependency>
         <dependency>
-        	<groupId>net.sf.saxon</groupId>
-        	<artifactId>saxon-dom</artifactId>
-        	<version>9.1.0.8</version>
+            <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
+            <classifier>dom</classifier>
         </dependency>
         <dependency>
-          <groupId>net.sf.saxon</groupId>
-          <artifactId>saxon-xpath</artifactId>
-          <version>9.1.0.8</version>
+            <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
+            <classifier>xpath</classifier>
         </dependency>
         <dependency>
-          <groupId>net.sf.saxon</groupId>
-          <artifactId>saxon-xqj</artifactId>
-          <version>9.1.0.8</version>
+            <groupId>net.sourceforge.saxon</groupId>
+            <artifactId>saxon</artifactId>
+            <version>9.1.0.8</version>
+            <classifier>xqj</classifier>
         </dependency>
         <dependency>
-        	<groupId>xerces</groupId>
-        	<artifactId>xercesImpl</artifactId>
-        	<version>2.9.1</version>
-        	<type>jar</type>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.9.1</version>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -95,11 +86,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-        	<groupId>commons-io</groupId>
-        	<artifactId>commons-io</artifactId>
-        	<version>1.4</version>
-        	<type>jar</type>
-        	<scope>compile</scope>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.4</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
